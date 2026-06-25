@@ -1,6 +1,0 @@
-{
-  "public": "frontend/dist",
-  "rewrites": [
-    { "source": "/**", "destination": "/frontend/dist/index.html" }
-  ]
-}
