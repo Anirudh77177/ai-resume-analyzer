@@ -6,11 +6,17 @@ const mongoose = require('mongoose'); // Mongoose import kiya
 const { GoogleGenAI } = require('@google/genai');
 const Analysis = require('./models/Analysis'); // Apna Model import kiya
 
+// 👇 1. YAHAN n8nRoutes IMPORT KIYA HAI
+const n8nRoutes = require('./routes/n8nRoutes'); 
+
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// 👇 2. YAHAN n8n KA ROUTE USE KIYA HAI (express.json() ke theek baad)
+app.use('/api/n8n', n8nRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
